@@ -120,3 +120,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* custom styles */
+.flex-center {
+  @apply flex items-center justify-center;
+}
