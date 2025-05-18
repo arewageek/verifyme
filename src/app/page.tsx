@@ -13,7 +13,7 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <LoginLink className="cursor-pointer">
-            <Button variant="default">
+            <Button variant="default" className="cursor-pointer">
               Sign in
             </Button>
           </LoginLink>
