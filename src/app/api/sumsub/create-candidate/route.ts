@@ -1,5 +1,4 @@
 import { NextRequest } from "next/server";
-import crypto from "crypto";
 
 export async function POST(request: NextRequest) {
   const url =
@@ -9,8 +8,8 @@ export async function POST(request: NextRequest) {
     headers: {
       "content-type": "application/json",
       "X-App-Token":
-            "sbx:h65BzmO2PTUG8Wxbpi9hsYjZ.s98p5Bgzl4di5jp0Ym8V1T9sQFZKpf74",
-      "X-App-Secret"
+        "sbx:h65BzmO2PTUG8Wxbpi9hsYjZ.s98p5Bgzl4di5jp0Ym8V1T9sQFZKpf74",
+      "X-App-Secret": process.env.SUMUB_SECRET!,
     },
     body: JSON.stringify({ externalUserId: "arewa" }),
   };
