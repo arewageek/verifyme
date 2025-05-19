@@ -9,7 +9,7 @@ interface IModal {
     setContent: (data: { body: string, heading: string }) => void,
 }
 
-const useStore = create<IModal>()((set, get) => ({
+export const useModalStore = create<IModal>()((set, get) => ({
     isVisible: false,
     setIsVisibile: (state) => set({ isVisible: state }),
     heading: "",
