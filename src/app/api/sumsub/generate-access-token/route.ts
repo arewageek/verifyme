@@ -1,22 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import axios from "axios";
-import createSignature from "@/utils/create-signature";
-import main, { createAccessToken } from "@/utils/example";
+import { generateAccessToken } from "@/utils/generate-access-token";
+import * as nanoid from "nanoid";
 
 export async function POST(request: NextRequest) {
-  const accessToken = process.env.SUMSUB_ACCESS_TOKEN!;
-
-  const url = "https://api.sumsub.com/resources/accessTokens/sdk";
-
-  const config = {
-    baseUrl: "https://api.sumsub.com",
-  };
-
   try {
-    const response = await axios(
-      createAccessToken("arewa", "id-and-liveness", 1200)
+    const response = await generateAccessToken(
+      nanoid.nanoid(),
+      "id-and-liveness",
+      1200
     );
-    return NextResponse.json(await response.data);
+    return NextResponse.json(await response);
   } catch (error: any) {
     console.log({ error });
     return NextResponse.json(error.message);
